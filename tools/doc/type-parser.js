@@ -15,10 +15,29 @@ const jsPrimitives = {
 
 const jsGlobalObjectsUrl = `${jsDocPrefix}Reference/Global_Objects/`;
 const jsGlobalTypes = [
-  'Array', 'ArrayBuffer', 'DataView', 'Date', 'Error',
-  'EvalError', 'Function', 'Map', 'Object', 'Promise', 'RangeError',
-  'ReferenceError', 'RegExp', 'Set', 'SharedArrayBuffer', 'SyntaxError',
-  'TypeError', 'TypedArray', 'URIError', 'Uint8Array',
+  'Array',
+  'ArrayBuffer',
+  'ArrayBufferView',
+  'BigInt',
+  'DataView',
+  'Date',
+  'Error',
+  'EvalError',
+  'Function',
+  'Map',
+  'Object',
+  'Promise',
+  'RangeError',
+  'ReferenceError',
+  'RegExp',
+  'Set',
+  'SharedArrayBuffer',
+  'SyntaxError',
+  'TypeError',
+  'TypedArray',
+  'URIError',
+  'Uint8Array',
+  'WebAssembly.Instance',
 ];
 
 const customTypesMap = {
@@ -128,6 +147,10 @@ const customTypesMap = {
     'perf_hooks.html#perf_hooks_class_performanceobserver',
   'PerformanceObserverEntryList':
     'perf_hooks.html#perf_hooks_class_performanceobserverentrylist',
+  'QuicEndpoint': 'quic.html#quic_class_quicendpoint',
+  'QuicSession': 'quic.html#quic_class_quicserversession_extends_quicsession',
+  'QuicSocket': 'quic.html#quic_quic_createsocket_options',
+  'QuicStream': 'quic.html#quic_class_quicstream_extends_stream_duplex',
 
   'readline.Interface': 'readline.html#readline_class_interface',
 
