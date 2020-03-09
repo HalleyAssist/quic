@@ -1,5 +1,6 @@
 #include "base_object-inl.h"
 #include "env-inl.h"
+#include "base_object-inl.h"
 #include "node_buffer.h"
 #include "node_crypto.h"
 #include "node_crypto_common.h"
