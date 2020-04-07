@@ -6461,7 +6461,7 @@ static int test_servername(int tst)
 
     testresult = 1;
 
-end:
+ end:
     SSL_SESSION_free(sess);
     SSL_free(serverssl);
     SSL_free(clientssl);
@@ -6470,7 +6470,6 @@ end:
 
     return testresult;
 }
-
 
 #ifndef OPENSSL_NO_QUIC
 

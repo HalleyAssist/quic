@@ -112,6 +112,8 @@ static const ERR_STRING_DATA SSL_str_functs[] = {
      "ossl_statem_server_post_process_message"},
     {ERR_PACK(ERR_LIB_SSL, SSL_F_OSSL_STATEM_SERVER_POST_WORK, 0),
      "ossl_statem_server_post_work"},
+    {ERR_PACK(ERR_LIB_SSL, SSL_F_OSSL_STATEM_SERVER_PRE_WORK, 0),
+     "ossl_statem_server_pre_work"},
     {ERR_PACK(ERR_LIB_SSL, SSL_F_OSSL_STATEM_SERVER_PROCESS_MESSAGE, 0),
      "ossl_statem_server_process_message"},
     {ERR_PACK(ERR_LIB_SSL, SSL_F_OSSL_STATEM_SERVER_READ_TRANSITION, 0),
