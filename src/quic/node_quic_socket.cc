@@ -84,14 +84,15 @@ bool IsShortHeader(
 }  // namespace
 
 QuicPacket::QuicPacket(const char* diagnostic_label, size_t len) :
-    data_(len),
+    data_{0},
+    len_(len),
     diagnostic_label_(diagnostic_label) {
   CHECK_LE(len, NGTCP2_MAX_PKT_SIZE);
 }
 
 QuicPacket::QuicPacket(const QuicPacket& other) :
-  QuicPacket(other.diagnostic_label_, other.data_.size()) {
-  memcpy(data_.data(), other.data_.data(), other.data_.size());
+  QuicPacket(other.diagnostic_label_, other.len_) {
+  memcpy(&data_, &other.data_, other.len_);
 }
 
 const char* QuicPacket::diagnostic_label() const {
@@ -99,9 +100,7 @@ const char* QuicPacket::diagnostic_label() const {
       diagnostic_label_ : "unspecified";
 }
 
-void QuicPacket::MemoryInfo(MemoryTracker* tracker) const {
-  tracker->TrackField("data", data_);
-}
+void QuicPacket::MemoryInfo(MemoryTracker* tracker) const {}
 
 QuicSocketListener::~QuicSocketListener() {
   if (socket_)

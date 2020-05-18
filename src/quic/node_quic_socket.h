@@ -151,11 +151,11 @@ class QuicPacket : public MemoryRetainer {
 
   QuicPacket(const char* diagnostic_label, size_t len);
   QuicPacket(const QuicPacket& other);
-  uint8_t* data() { return data_.data(); }
-  size_t length() const { return data_.size(); }
+  uint8_t* data() { return data_; }
+  size_t length() const { return len_; }
   uv_buf_t buf() const {
     return uv_buf_init(
-      const_cast<char*>(reinterpret_cast<const char*>(data_.data())),
+      const_cast<char*>(reinterpret_cast<const char*>(&data_)),
       length());
   }
   inline void set_length(size_t len);
@@ -166,7 +166,8 @@ class QuicPacket : public MemoryRetainer {
   SET_SELF_SIZE(QuicPacket);
 
  private:
-  std::vector<uint8_t> data_;
+  uint8_t data_[NGTCP2_MAX_PKTLEN_IPV4];
+  size_t len_ = NGTCP2_MAX_PKTLEN_IPV4;
   const char* diagnostic_label_ = nullptr;
 };
 

@@ -18,6 +18,7 @@ namespace quic {
 std::unique_ptr<QuicPacket> QuicPacket::Create(
     const char* diagnostic_label,
     size_t len) {
+  CHECK_LE(len, NGTCP2_MAX_PKTLEN_IPV4);
   return std::make_unique<QuicPacket>(diagnostic_label, len);
 }
 
@@ -27,8 +28,8 @@ std::unique_ptr<QuicPacket> QuicPacket::Copy(
 }
 
 void QuicPacket::set_length(size_t len) {
-  CHECK_LE(len, data_.size());
-  data_.resize(len);
+  CHECK_LE(len, NGTCP2_MAX_PKTLEN_IPV4);
+  len_ = len;
 }
 
 int QuicEndpoint::Send(
